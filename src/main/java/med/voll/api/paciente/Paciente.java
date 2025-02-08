@@ -24,4 +24,13 @@ public class Paciente {
 
     @Embedded
     private Endereco endereco;
+
+    // Construtor que aceita um objeto DadosCadastroPaciente
+    public Paciente(DadosCadastroPaciente dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.cpf = dados.cpf();
+        this.telefone = dados.telefone();
+        this.endereco = new Endereco(dados.endereco()); // Supondo que Endereco tenha um construtor que receba DadosEndereco
+    }
 }
